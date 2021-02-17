@@ -18,6 +18,574 @@
 *  Copyright (C) 1988, 2018, Oracle and/or its affiliates.
 *  All Rights Reserved.
 * ***************************************************************
+<style type="text/css"/>
+body {
+/* background-color:rgb(34,83,122); */
+background-image: url('./images/BG_Texture.png');
+font-family: Arial, Helvetica, sans-serif;
+font-size: 15px;
+display: block;
+}
+
+.signonMain {
+margin: auto;
+text-align: center; 
+}
+
+.ps_text_header {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 25px;
+font-weght:bold;
+color: #FFFFFF;
+text-shadow: 3px 3px 3px #000000;
+width:351px; 
+display:inline-block;
+padding-bottom:14px;
+text-align:left;
+}
+
+html[dir='rtl'] .ps_text_header {
+text-align:right;
+text-shadow: -3px 3px 3px #000000;
+}
+
+/* begin information page and expire page settings */
+.ps_box-info {
+display:inline-block;
+width:75%;
+}
+
+.ps_box-info > p {
+color: #FFFFFF;
+}
+
+p.ps_loginmessagelarge {
+font-weight: bold;
+}
+
+p.ps_loginmessagelarge a {
+margin: 0 .5em;
+}
+/* end information page and expire page settings */
+
+/* begin signin trace page styles */
+#pttracesettings {
+text-align: center; 
+display: inline-block; 
+width: 100%; 
+margin-left:2em;
+margin-right:0;
+margin-bottom:14px;
+}
+
+html[dir="rtl"] #pttracesettings {
+margin-right:2em;
+margin-left:0;
+}
+
+.traceCols {
+float: left; width: 25%; display: inline; 
+margin: 0px; 
+color: rgb(255, 255, 255); 
+text-align: left;
+}
+
+html[dir="rtl"] .traceCols {
+float:right; width:25%; display:inline;
+margin: 0px; 
+color: rgb(255, 255, 255); 
+text-align: right;
+}
+
+@media only screen and (max-width: 950px){
+   .traceCols {
+	width: 50%;
+   }
+
+   #pttracesettings {
+	width:80%;
+	margin-left:20%;
+   }
+   html[dir="rtl"] #pttracesettings {
+   margin-right:20%;
+   }
+}
+
+@media only screen and (max-width: 650px){
+   #pttracesettings {
+	width:90%;
+	margin-left:0%;  
+   }
+   
+   html[dir='rtl'] #pttracesettings {
+    width:90%;
+    margin-right:0%;  
+    }
+
+   .traceCols {
+	width: 100%;      
+   }
+    
+}
+
+#pttracesettings label {
+font-size: .80em;
+font-weight: normal;
+vertical-align:.2em;
+text-shadow:none;
+}
+
+#pttracesettings h5 {
+color:#FFFFFF;
+text-shadow:none;
+text-align:left;
+}
+
+html[dir="rtl"] #pttracesettings h5 {
+text-align: right;
+}
+
+/* end signin trace page styles */
+
+.ps_box-label {
+width: 50%;
+text-align: right;
+display: inline-block;
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+padding-right: 2em;
+}
+
+html[dir='rtl'] .ps_box-label {
+text-align:left;
+padding-right:0em;
+padding-left:2em;
+}
+
+.ps_label-show {
+display:inline-block;
+text-align: left;
+width:351px; 
+padding-bottom:0.5em;
+}
+
+html[dir='rtl'] .ps_label-show {
+text-align:right;
+}
+
+input[type="text"], input[type="password"],textarea {
+background-color : #ffffff; 
+box-shadow: 3px 3px 5px rgba(0,0,0,0.25) inset;
+border:0.5px inset transparent;
+border-radius:0.25em; 
+background-clip: padding-box;
+color:#000000;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 15px;
+font-weight:bold;
+width: 341px;
+padding-left: 10px;
+padding-right: 0px;
+padding-bottom: 0.8em;
+padding-top: 0.8em;
+}
+
+html[dir='rtl'] input[type="text"], html[dir='rtl'] input[type="password"], html[dir='rtl'] textarea {
+padding-left: 0px;
+padding-right: 10px;
+box-shadow: -3px 3px 5px rgba(0,0,0,0.25) inset;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="checkbox"]:focus {
+outline: 2px solid #e47b00;
+}
+
+*:-ms-input-placeholder { 
+  color:#939393 !important; 
+}
+
+.ps_box-control {
+margin-bottom:23px;
+}
+
+.ps_select{
+border:0.5px inset transparent; 
+border-radius:0.25em;  
+-webkit-appearance: none;            
+-moz-appearance: none;             
+appearance:none;	     
+background-color:#ffffff; 
+text-indent: 0.01px;          
+text-overflow: "";                                        
+box-shadow: 3px 3px 5px rgba(0,0,0,0.25) inset;
+color:#000000;
+font-size:15px;
+font-weight:bold;
+align-items:center;
+width: 351px;
+padding-left:10px;
+padding-right:0px;
+padding-top:0.7em;
+padding-bottom: 0.7em;
+}
+
+html[dir='rtl'] .ps_select {
+padding-left:0px;
+padding-right:10px;
+box-shadow: -3px 3px 5px rgba(0,0,0,0.25) inset;
+}
+
+.ps_select:focus {
+outline:2px solid #e47b00;
+}
+
+@media all and (-ms-high-contrast:active) {
+.ps_select:focus::-ms-value {
+/* For IE10 and above to remove purple hightlight in highcontrast mode */
+background-color: transparent;
+color:#FFFFFF;
+}
+}
+
+@media all and (-ms-high-contrast:none) {
+.ps_select:focus::-ms-value {
+/* For IE10 and above to remove blue hightlight in normal mode */
+background-color: transparent;
+color:#000000;
+}
+}
+
+.ps_select:-moz-focusring {
+/* FF:remove default dotted outline*/
+color: transparent;
+text-shadow: 0 0 0 #000000;
+}
+
+ #ps_select_box{
+  position:relative;
+ }
+
+ #ps_select_parent {
+  display:inline-block;
+
+ }
+
+ #ps_select_box:after {
+content:url('./images/ArrowGray_24x24px.png');
+display:inline-block;
+position: absolute;
+top: 0.5em;
+right: 0.2em;
+pointer-events: none; 
+ }
+
+html[dir='rtl'] #ps_select_box:after { 
+left: 0.2em;
+text-align:left;
+margin-right:92%;
+}
+
+@-moz-document url-prefix() {
+/* Start:Firefox only */
+
+ .ps_select_ff_30 {
+  /* Workaround for Mozilla bug:687192,610733. Bug until Firefox 30.0 */
+  /* Add padding-top to vertically align select text */
+  padding-top:10px;
+ }
+ 
+ /* required to show custom arrow and hide native select arrow */
+ #ps_select_box {
+  position:relative;
+ }
+
+ #ps_select_parent {
+  display:inline-block;
+
+ }
+
+ #ps_select_box:after {
+content:url('./images/ArrowGray_24x24px.png');
+display:inline-block;
+position: absolute;
+top: 1px;
+right: 1px;
+background:#FFF;
+pointer-events: none;  
+height:2.64em;
+padding-top:0.55em;
+padding-bottom:0.3em;
+box-shadow: -3px 3px 5px rgba(0,0,0,0.25) inset;
+box-sizing: border-box;
+ }
+html[dir='rtl'] #ps_select_box:after {
+left: 1px;
+background:none;
+box-shadow: none;
+box-sizing: border-box;
+}
+  
+  /* end of custom arrow css */
+/* End:Firefox only */
+}
+
+select::-ms-expand {
+/* remove the default select arrow in IE10 and above */
+display: none;
+}
+
+.ps_select_arrow {
+ width:24px;height:100%;padding:0;border:0;
+ background-color:#FFFFFF;
+ position:relative;
+}
+
+html[dir='rtl'] .ps_select_arrow {
+width:24px;height:100%;padding:0;border:0;
+background-color:#FFFFFF;
+position:absolute;
+text-align:right
+}
+		
+.ps_select_arrow img {
+ position:absolute;
+ top:10px;
+}
+
+select option {
+background:transparent !important;  
+background-color:#00385c; 
+padding-left:10px;
+margin-bottom:0.25em;
+}
+
+html[dir='rtl'] select option {
+padding-right:10px;
+padding-left:0;
+}
+
+select:hover {
+border-color: rgba(0,113,192,0.5);
+}
+
+.ps_hide {
+display:none; 
+}
+
+a, a:link,.ps-link,.ps-link:link, label {
+text-decoration: none;
+color: #FFFFFF;
+font-family:Arial;
+font-size:15px;
+text-shadow: 2px 2px 1px #000000;
+}
+
+html[dir='rtl'] a, html[dir='rtl'] a:link, html[dir='rtl'] .ps-link,html[dir='rtl']  .ps-link:link, html[dir='rtl'] label  {
+text-shadow: -2px 2px 1px #000000;
+}
+
+a:link:visited,
+.ps-link:visited {
+text-decoration: none;
+color: green;
+}
+
+a:link:hover,
+.ps-link:hover {
+text-decoration: underline; 
+}
+
+.ps-label {
+font-weight: bold;
+}
+
+.ps_box-button,
+.ps_box-link {
+padding-bottom:18px;
+}
+
+/* buttons */
+.ps-button{
+background: #73c998; 
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#79cc9c), color-stop(100%,#73c998)); 
+padding:0.3em  1em 0.3em 1em !important;
+font-size:1.2em;   
+border-radius: 0.25em;
+margin:0;
+color:#000000;
+border:1px inset transparent;
+box-shadow:0px 8px 10px #BDE6CF inset, 3px 3px 3px #000000;
+font-weight:normal;
+text-shadow:0px 1px 0px #BDE6CF;
+box-sizing:content-box;
+}
+
+html[dir="rtl"] .ps-button {
+box-shadow:0px 8px 10px #BDE6CF inset, -3px 3px 3px #000000;
+}
+
+.ps-button:focus{
+outline: 2px solid #e47b00;
+}
+.ps-button::-moz-focus-inner {
+/* FF: remove outline on focus */
+border: 0; 
+outline: 2px solid #e47b00;
+}
+.ps-button:-moz-focusring {
+/* FF: allow focus to be seen in highcontrast mode*/
+border: 2px inset transparent; 
+outline: 2px solid #e47b00;
+}
+
+@-moz-document url-prefix() {
+ .ps-button {letter-spacing:0.02em; line-height: 1.2em;/* FF only */ }
+}
+
+.ps_box-staticimg {
+display: inline-block;
+position: relative;
+}
+
+.signInText .ps-text:before {
+content: "|";
+display: inline-block;
+margin: 0 0.5em;
+vertical-align: top;
+font-weight: normal;
+color: rgba(0,051,102,0.5);
+}
+
+.ps_footer_text {
+font-size: 12px;
+color: #FFFFFF;
+display:inline-block;
+text-align:center;
+}
+
+.ps_lan_special {
+margin-top: .5em;
+}
+
+#error_link {
+cursor: pointer;
+outline: thin dotted #FF0000;
+}
+
+.ps_login_error {
+text-align: center;
+margin-bottom:14px;
+}
+
+#ptloginerrorcont, #login_error, #discovery_error {
+display:none;
+}
+
+.ps_login_error_inner {
+display: inline-block;
+margin: 0;
+}
+
+#login_error {
+font-size: 1em;
+font-weight:bold;
+color: #FFFFFF;
+display: inline-block;
+margin-top: 0.5em;
+margin-bottom: 0.5em;
+}
+
+.psloginerror {
+font-family: Arial;
+font-size: 9pt;
+color: #FFFFFF;
+margin:0;
+}
+
+.psloginerror span {
+color: #FFFFFF;
+}
+
+#browsercheck_error div {
+color: #000000;
+font-weight:normal;
+white-space: nowrap;
+width:auto;
+}
+
+#browsercheck_error div > div {
+display: inline-block;
+padding-right: 2em;
+text-align: right;
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+}
+
+html[dir='rtl'] #browsercheck_error div > div {
+text-align:left;
+padding-right:0em;
+padding-left:2em;
+}
+
+.ps-staticimg {
+   max-width:100%; 
+}
+
+/* smartphones */
+@media only screen and (max-device-width: 360px) {
+ .signInText {
+    font-weight: bold;
+ }
+ 
+ .ps_text_header {
+   max-width:100%;
+ }
+#ps_select_parent {
+max-width: 103%;
+}
+
+ .ps_select {
+max-width: 100%;
+ }
+
+#ps_select_box:after {
+content:url('./images/ArrowGray_24x24px.png');
+display:inline-block;
+position: absolute;
+top: 0.5em;
+right: 0.2em;
+pointer-events: none; 
+}
+
+html[dir='rtl'] #ps_select_box:after {
+left: 0.2em;
+}
+		
+ input[type="text"], input[type="password"]{
+   max-width:100%; 
+ }
+
+  /* .ps_box-group, .ps_box-select,.ps_footer{ */
+ .ps_signinentry, .ps_footer, ps_footer_text {
+ 
+  max-height:100%; 
+padding-left: 2em;
+padding-right: 3em;
+  overflow:hidden;
+  text-align:center;
+  margin:auto;
+ }
+ 
+html[dir='rtl'] .ps_signinentry, .ps_footer, ps_footer_text {
+padding-left: 3em;
+padding-right: 2em;
+}
+
+}
+</style>
+
 --><head>
 <title>Oracle PeopleSoft Sign-in</title>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
